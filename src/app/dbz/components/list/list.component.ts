@@ -14,11 +14,12 @@ export class ListComponent {
 
   // Emitir eventos del hijo a el padre
   @Output()
-  public deleteCharacterId: EventEmitter<number> =  new EventEmitter();
+  public deleteCharacterId: EventEmitter<string> =  new EventEmitter();
 
 
-  onDeleteCharacter( index: number ): void {
+  onDeleteCharacter( id?: string ): void {
     // TODO: Emitir el ID del personaje
-    this.deleteCharacterId.emit( index );
+    if ( !id ) return;
+    this.deleteCharacterId.emit( id );
   }
 }
